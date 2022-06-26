@@ -49,10 +49,10 @@ public class Level : MonoBehaviour
 
     public void Enable()
     {
-        backgroundRenderer.color = backgroundColor;
-        borderRenderer.material.color = borderColor;
+        if(backgroundRenderer) backgroundRenderer.color = backgroundColor;
+        if(borderRenderer) borderRenderer.material.color = borderColor;
         Camera.main.backgroundColor = cameraBackgroundColor;
-        paddleRenderer.material.color = paddleColor;
+        if(paddleRenderer) paddleRenderer.material.color = paddleColor;
 
         root.SetActive(true);
 

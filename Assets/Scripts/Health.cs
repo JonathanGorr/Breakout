@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -11,7 +10,7 @@ public class Health : MonoBehaviour, IHealth
     public virtual int PointValue => StartHealth;
 
     public int StartHealth;
-    private int health;
+    [SerializeField] private int health;
 
     public MeshRenderer renderer;
     public AudioSource asrc;

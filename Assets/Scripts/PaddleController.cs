@@ -8,24 +8,26 @@ public interface IPaddle
 
 public class PaddleController : CubeBase, IAngleOverride, IPaddle
 {
-    public Transform target;
-    public Transform leftLimit;
-    public Transform rightLimit;
-    public Transform tester;
+    [SerializeField] private Transform target;
+    [SerializeField] private Transform leftLimit;
+    [SerializeField] private Transform rightLimit;
+    [SerializeField] private float smoothTime = 0.1f;
+    [SerializeField] private float speed = 1;
+    [SerializeField] private float reflectedAngleExtent = 30;
+
+    [SerializeField] private BoxCollider boxCollider;
+    [SerializeField] private Health health;
+    [SerializeField] private BallSpawner spawner;
+    [SerializeField] private AudioClip powerupCollected;
+    [SerializeField] private AudioSource asrc;
 
     private float direction;
     private float xVelocity;
     private float currentVelocity;
-    public float smoothTime = 0.1f;
-    public float speed = 10;
-    public float reflectedAngleExtent = 30;
 
-    public float length = 4;
-    public BoxCollider boxCollider;
-    public Health health;
-    public BallSpawner spawner;
-    public AudioClip powerupCollected;
-    public AudioSource asrc;
+    [Header("Debug")]
+    [SerializeField] private float length = 4;
+    [SerializeField] private Transform tester;
 
     #region reflections
 

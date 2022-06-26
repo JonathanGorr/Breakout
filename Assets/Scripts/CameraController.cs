@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour
 
     private Vector3 currentVelocity;
     public float smoothTime = 0.5f;
-    public float yAngle = 6;
+    public float yAngle = -1;
 
     private void LateUpdate()
     {
