@@ -61,8 +61,6 @@ public class GameManager : MonoBehaviour<GameManager>
     public TitleState TitleState => titleState as TitleState;
     public GameLoopState GameState => gameState as GameLoopState;
     public GameOverState GameOverState => gameOverState as GameOverState;
-    //public gameCompleteState GameCompleteState => gameCompleteState;
-
     private Dictionary<EGameState, GameState> Map = new Dictionary<EGameState, GameState>();
     public UnityEvent<GameState> OnStateChangedEvent = new UnityEvent<GameState>();
     public GameState CurrentState => stateMachine.CurrentState;
