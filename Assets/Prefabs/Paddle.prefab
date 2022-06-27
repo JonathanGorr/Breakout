@@ -40,10 +40,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2391357001794576603}
-  - component: {fileID: 2784763854077724479}
   - component: {fileID: 1384183078819789321}
   - component: {fileID: 3629403656174729109}
   - component: {fileID: 6737803613839599487}
+  - component: {fileID: 3580268855853777720}
+  - component: {fileID: 2964068001566465158}
   m_Layer: 0
   m_Name: Paddle
   m_TagString: Untagged
@@ -69,31 +70,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!114 &2784763854077724479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3054599610680719969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bb373187c625b943a9e7b70adf13974, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 2391357001794576603}
-  leftLimit: {fileID: 0}
-  rightLimit: {fileID: 0}
-  smoothTime: 0.1
-  speed: 0.5
-  reflectedAngleExtent: 45
-  boxCollider: {fileID: 8919235418090550200}
-  health: {fileID: 1384183078819789321}
-  spawner: {fileID: 6737803613839599487}
-  powerupCollected: {fileID: 8300000, guid: 569b7251dfe91864b9547adc54ff72cd, type: 3}
-  asrc: {fileID: 3629403656174729109}
-  length: 4
-  tester: {fileID: 3886220432511384810}
 --- !u!114 &1384183078819789321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,6 +205,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 6037169512848700210, guid: 3acb94a79d657ab4ea50e74413ad5d4e, type: 3}
   ballHolder: {fileID: 340384537457618586}
+--- !u!114 &3580268855853777720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3054599610680719969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb373187c625b943a9e7b70adf13974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 2391357001794576603}
+  leftLimit: {fileID: 0}
+  rightLimit: {fileID: 0}
+  smoothTime: 0.1
+  speed: 0.5
+  reflectedAngleExtent: 30
+  boxCollider: {fileID: 2964068001566465158}
+  health: {fileID: 1384183078819789321}
+  spawner: {fileID: 6737803613839599487}
+  powerupCollected: {fileID: 8300000, guid: 569b7251dfe91864b9547adc54ff72cd, type: 3}
+  asrc: {fileID: 3629403656174729109}
+  length: 4
+  tester: {fileID: 3886220432511384810}
+--- !u!65 &2964068001566465158
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3054599610680719969}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.2462854, y: 1.0160003, z: 1.0160003}
+  m_Center: {x: -0.011681616, y: 1.1369046e-16, z: 0.50800014}
 --- !u!1 &3554362866066236294
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,7 +254,6 @@ GameObject:
   - component: {fileID: 1768639302011495920}
   - component: {fileID: 4097940781890461795}
   - component: {fileID: 2639768494654908724}
-  - component: {fileID: 8919235418090550200}
   - component: {fileID: 9039107467312824074}
   m_Layer: 0
   m_Name: Paddle
@@ -314,19 +327,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8919235418090550200
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3554362866066236294}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4.064, y: 1.0160003, z: 1.0160003}
-  m_Center: {x: 0, y: 0, z: 0.50800014}
 --- !u!82 &9039107467312824074
 AudioSource:
   m_ObjectHideFlags: 0

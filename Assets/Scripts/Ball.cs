@@ -26,7 +26,6 @@ public class Ball : CubeBase
     private void Start()
     {
         Ball.BallCount = Ball.BallCount + 1;
-        Debug.Log("start:" + Ball.BallCount);
         health.Resurrect();
     }
 
