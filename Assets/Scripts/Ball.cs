@@ -1,20 +1,19 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class Ball : CubeBase
 {
     [Header("Ball")]
-    public float length = 4;
-    private Vector3 directionVector = Vector3.zero;
-    public float speed = 3;
-    public float radius;
-    private List<Tuple<Vector3, Vector3>> hits = new List<Tuple<Vector3, Vector3>>();
-    public Health health;
-    public LayerMask layermask;
+    [SerializeField] private float length = 4;
+    [SerializeField] private float speed = 16;
+    [SerializeField] private float radius = 0.4f;
+    [SerializeField] private Health health;
+    [SerializeField] private LayerMask layermask;
+
     public static int BallCount = 0;
     public static UnityEvent OnDeathEvent = new UnityEvent();
+    private Vector3 directionVector = Vector3.zero;
+    //private List<Tuple<Vector3, Vector3>> hits = new List<Tuple<Vector3, Vector3>>();
 
     #region unity events
 
@@ -75,12 +74,15 @@ public class Ball : CubeBase
             || transform.position.y > 5 || transform.position.y < -5
             || transform.position.z > 13 || transform.position.z < -13)
         {
-            OnDeath();
+            health.Kill(true);
         }
     }
 
     private void FixedUpdate()
     {
+        if (health.State != Health.EHealthState.Alive)
+            return;
+
         transform.position += directionVector * speed * Time.deltaTime;
 
         OutOfBoundsCheck();
@@ -148,10 +150,12 @@ public class Ball : CubeBase
         }
 
         Gizmos.color = Color.magenta;
+        /*
         foreach(var cachedHits in hits)
         {
             Gizmos.DrawRay(cachedHits.Item1, cachedHits.Item2);
         }
+        */
     }
 
     #endregion
